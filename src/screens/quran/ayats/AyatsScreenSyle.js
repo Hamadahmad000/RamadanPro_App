@@ -70,6 +70,10 @@ const styles = StyleSheet.create({
     AyatNameUrdu:{
         color:Colors.black,
         width:responsiveWidth(65)
+    },
+    AudioIcon:{
+        height:responsiveWidth(5),
+        width:responsiveWidth(5)
     }
 })
 

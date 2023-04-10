@@ -8,6 +8,7 @@ import VideoScreen from '../screens/videoScreen/Video'
 import Loader from '../screens/Loading/Loader'
 import Quran from '../screens/quran/Quran'
 import Ayats from '../screens/quran/ayats/Ayats'
+import Splash from '../screens/splash/Splash'
 
 export default function Stack() {
     const Stack = createStackNavigator()
@@ -16,9 +17,10 @@ export default function Stack() {
     }
   return (
     <Stack.Navigator>
-      <Stack.Screen name='BottomNav' component={Bottom} options={CustomHeader}/>
+      <Stack.Screen name='Splash' component={Splash} options={CustomHeader}/>
       <Stack.Screen name='Signup' component={Signup} options={CustomHeader}/>
       <Stack.Screen name='Login' component={Login} options={CustomHeader}/>
+      <Stack.Screen name='BottomNav' component={Bottom} options={CustomHeader}/>
       <Stack.Screen name='Video' component={VideoScreen} options={CustomHeader}/>
       <Stack.Screen name='Quran' component={Quran} options={CustomHeader}/>
       <Stack.Screen name='Ayats' component={Ayats} options={CustomHeader}/>

@@ -14,7 +14,24 @@ const styles = StyleSheet.create({
     },
     Input:{
      color:Colors.black,
-     paddingHorizontal:0
+     paddingHorizontal:0,
+     flex:1
+    },
+    SecureTextIcon:{
+        height:responsiveWidth(5),
+        width:responsiveWidth(5)
+    },
+    FieldDIv:{
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-between'
+    },
+    EyeIcon:{
+        paddingRight:responsiveWidth(2)
+    },
+    errorIcon:{
+    height:responsiveWidth(5),
+    width:responsiveWidth(5)
     }
 })
 
