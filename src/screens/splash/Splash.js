@@ -17,7 +17,7 @@ export default function Splash() {
       
     }
     fetchdata()
-  }, 2000);
+  }, 2000)
 }, [])
 
 
