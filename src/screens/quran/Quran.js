@@ -3,43 +3,61 @@ import React, { useEffect, useState } from 'react'
 import styles from './QuranScreenStyle'
 import { useNavigation } from '@react-navigation/native'
 import { GetData } from '../../config/Axios'
+import Loader from '../Loading/Loader'
 
 
 export default function Quran() {
+  
+
   const navigation = useNavigation()
   const [data, setdata] = useState([])
-  const [SurahsList, setSurahsList] = useState({})
+  const [SurahsList, setSurahsList] = useState([])
+  const [isLoading, setisLoading] = useState(false)
+  // const [ShowData, setShowData] = useState(false)
   useEffect(() => {
+    setisLoading(true)
+    async function fetchdata(){
+      await GetData('http://api.alquran.cloud/v1/surah').then((response)=>{
+
+      setdata(response.data.data)
+    })
     Loaddata()
+    }
+    fetchdata()
   }, [])
   
   const Loaddata = async()=>{
-    const response = await GetData('http://api.alquran.cloud/v1/quran/ar.alafasy')
-    // console.log(response.data.data.surahs[5].englishName);
-    setdata(response.data.data.surahs)
+    
+    
    
-        data.map((list)=>{
-          setSurahsList(list)
-
-        })
-      console.log(SurahsList);
+     
+        setisLoading(false)
   }
 
-  // const DisplaySurahs = ({item,index})=>{
-  //   return(
-  //     <View style={styles.ListDiv}>
-  //      {console.log(item)}
-  //     <View style={styles.Surah_NumberDiv}>
-  //     <Text style={styles.Surah_Number}>1</Text>
-  //     </View>
-  //      <Text style={styles.Surah}>{'Al-Fatiha'}</Text>
+  const DisplaySurahs = ({item})=>{
  
-  //    </View>
-  //   )
-  // }
+    return(
+      <TouchableOpacity style={styles.ListDiv} onPress={()=>{
+        navigation.navigate('Ayats',{
+          surahNumber:item.number,
+          surahName:item.englishName
+        })
+      }}>
+    <View style={styles.LeftContent}>
+    <View style={styles.Surah_NumberDiv}>
+     <Text style={styles.Surah_Number}>{item.number}</Text>
+     </View>
+      <Text style={styles.Surah}>{item.englishName}</Text>
+      
+    </View>
+    <Text style={styles.AyatNameUrdu}>{item.name}</Text>
+    </TouchableOpacity>
+    )
+  }
 
   return (
     <View style={styles.Container}>
+      <Loader isvisible={isLoading}/>
       <View style={styles.Header}>
         <TouchableOpacity style={styles.IconDiv} onPress={()=>navigation.goBack()}>
           <Image source={require('../../assets/icons/back.png')} style={styles.Headericon}/>
@@ -49,7 +67,7 @@ export default function Quran() {
           <Image source={require('../../assets/icons/search-interface-symbol.png')} style={styles.Headericon}/>
         </TouchableOpacity>
       </View>
-    {/* <FlatList data={data} renderItem={DisplaySurahs}/> */}
+    <FlatList data={data} renderItem={DisplaySurahs}/>
     </View>
   )
 }

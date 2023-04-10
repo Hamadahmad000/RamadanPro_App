@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native'
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
-import { Colors } from '../../constant'
+import { Colors } from '../../../constant'
 
 
 const styles = StyleSheet.create({
@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     AyatNameUrdu:{
-        color:Colors.black
+        color:Colors.black,
+        width:responsiveWidth(65)
     }
 })
 
