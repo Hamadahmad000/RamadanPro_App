@@ -43,13 +43,13 @@ export default function Home() {
             <View style={styles.DetailsBottom}>
               <Text style={styles.DateTime}>Wednesday, 14 April</Text>
               <View style={styles.Info}>
-                <Text>01 Ramadan || 1442</Text>
+                <Text style={styles.InfoText}>01 Ramadan || 1442</Text>
                 <View style={styles.City}>
                   <Image
                     source={require('../../assets/icons/location-pin.png')}
                     style={styles.LocationIcon}
                   />
-                  <Text>Alipur Chatha</Text>
+                  <Text style={styles.InfoCity}>Alipur Chatha</Text>
                 </View>
               </View>
             </View>

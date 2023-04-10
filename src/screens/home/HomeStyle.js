@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   },
   TimeTitle: {
     marginTop: responsiveHeight(0.5),
+    fontSize: responsiveFontSize(1.8)
   },
   DetailsBottom: {},
   LocationIcon: {
@@ -79,6 +80,8 @@ const styles = StyleSheet.create({
     color: Colors.Dark,
     paddingVertical: responsiveHeight(1),
   },
+  InfoText:{fontSize:responsiveFontSize(1.8)},
+  InfoCity:{fontSize:responsiveFontSize(1.8)},
   BookIcon:{
   height:responsiveWidth(7),
   width:responsiveWidth(7),
